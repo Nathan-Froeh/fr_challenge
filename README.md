@@ -1,7 +1,8 @@
-# Required Back End [Link]-(https://github.com/fast-radius/fe-challenge/)
+# Required Back End - [Github link](https://github.com/fast-radius/fe-challenge/)
 Most browsers like Chrome limit the headers returned from an api call making it impossible to get the pagination headers returned from the get parts api call.
 
 I updated the endpoint to return the pagination data by adding this.
+
 ```cors({exposedHeaders: ['per-page', 'page-number', 'total-entries', 'total-pages']})```
 
 
