@@ -16,20 +16,21 @@ export function PartListItem(props) {
     );
   }
 
-  const handleUpdate = () => {
+  const handleUpdate = (event) => {
+    event.preventDefault()
     setIsUpdating(true);
     updatePart(part).then(() => {
       setIsUpdating(false);
-    })
+    }) 
   }
 
   return (
     <div className="part-list-item">
       <strong>{part.part_file.file_name}</strong>
-      <div>
+      <form onSubmit={event => handleUpdate(event)}>
         <input type="number" min="0" placeholder="quantity" value={part.quantity} onChange={changeQuantity}/>
-        <button disabled={isUpdating} onClick={() => handleUpdate()}>Save</button>
-      </div>
+        <button type="submit" disabled={isUpdating}>Save</button>
+      </form>
     </div>
 
   )

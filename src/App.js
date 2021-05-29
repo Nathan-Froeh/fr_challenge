@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     if(parts !== undefined) return;
     fetchParts(1);
-  }, []);
+  }, [parts]);
   return (
     <div className="App">
       <main>
