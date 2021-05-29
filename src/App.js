@@ -5,14 +5,14 @@ import {
   updatePart
 } from './apiCalls';
 import {PartListItem} from './part-list-item/part-list-item';
-
+import {Paginate} from './paginate/paginate';
 
 function App() {
   const [parts, setParts] = useState(undefined);
   const [pagination, setPagination] = useState(undefined);
 
-  const fetchParts = () => {
-    getParts(2).then(parts => {
+  const fetchParts = (page) => {
+    getParts(page).then(parts => {
       setParts(parts.data.data)
       console.log('parts', parts)
       setPagination({
@@ -24,16 +24,30 @@ function App() {
     })
   } 
 
+  const changePage = (e) => {
+    console.log('change page', e)
+    fetchParts(e);
+  }
+
+  const renderParts = () => {
+    if(parts && pagination) {
+      return (
+        <div className="part-list">
+          {parts?.map(part => <PartListItem part={part} key={part.id}></PartListItem>)}
+          <Paginate pageChange={changePage} pagination={pagination}></Paginate>
+        </div>
+      )
+    }
+  }
+
   useEffect(() => {
     if(parts !== undefined) return;
-    fetchParts();
+    fetchParts(1);
   }, []);
   return (
     <div className="App">
       <main>
-        <div className="part-list">
-          {parts?.map(part => <PartListItem part={part} key={part.id}></PartListItem>)}
-        </div>
+        {renderParts()}
       </main>
     </div>
   );
