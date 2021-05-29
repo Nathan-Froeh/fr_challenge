@@ -11,7 +11,7 @@ export function getParts(pageNumber) {
 }
 
 export function updatePart(part) {
-  return axios.get(`${baseUrl}/${part.id}`, {method: 'PUT'})
+  return axios.put(`${baseUrl}/${part.id}`, {quantity: part.quantity})
     .then(res => {
       return res
     })

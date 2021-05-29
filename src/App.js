@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import {
-  getParts,
-  updatePart
-} from './apiCalls';
+import {getParts} from './apiCalls';
 import {PartListItem} from './part-list-item/part-list-item';
 import {Paginate} from './paginate/paginate';
 
@@ -14,7 +11,6 @@ function App() {
   const fetchParts = (page) => {
     getParts(page).then(parts => {
       setParts(parts.data.data)
-      console.log('parts', parts)
       setPagination({
         'page-number': parts.headers['page-number'],
         'per-page': parts.headers['per-page'],
@@ -25,7 +21,6 @@ function App() {
   } 
 
   const changePage = (e) => {
-    console.log('change page', e)
     fetchParts(e);
   }
 

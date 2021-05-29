@@ -7,10 +7,10 @@ export function Paginate({pagination, pageChange}) {
     pageChange(page + e)
   }
 
-  const init = () => {
-    console.log('pagination', pagination)
-  }
-  init();
+  // const init = () => {
+  //   console.log('pagination', pagination)
+  // }
+  // init();
   return(
     <div className="paginate">
 
