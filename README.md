@@ -27,7 +27,7 @@ You will also see any lint errors in the console.
 ## Acceptance Criteria
 
 - [x] Part names are displayed in a list from the server
-- [ ] Part list is paginated, 5 per page - (The back end only returns 4 parts at a time)
+- [x] Part list is paginated, 5 per page - (The back end only returns 4 parts at a time)
 - [x] You can move between pages
 - [x] Each part renders a Quantity input
 - [x] You can "Save" each Part using a `PUT` request
