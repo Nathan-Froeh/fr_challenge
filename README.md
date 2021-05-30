@@ -5,6 +5,8 @@ I updated the endpoint to return the pagination data by adding this.
 
 ```cors({exposedHeaders: ['per-page', 'page-number', 'total-entries', 'total-pages']})```
 
+Also, one of the requirements was to return a list of 5 items at a time from the get parts api call while the server only actually returns 4 at a time.
+
 
 # Getting Started with Create React App
 
